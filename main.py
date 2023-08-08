@@ -1,5 +1,6 @@
 from datetime import date
 from dotenv import load_dotenv
+
 load_dotenv()
 from flask import Flask, abort, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap5
@@ -70,6 +71,8 @@ gravatar = Gravatar(app,
                     force_lower=False,
                     use_ssl=False,
                     base_url=None)
+
+
 # TODO: Create a User table for all your registered users.
 @login_manager.user_loader
 def load_user(user_id):
@@ -241,4 +244,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5002)
+    app.run(debug=False, port=5002)
