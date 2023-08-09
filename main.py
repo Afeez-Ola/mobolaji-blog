@@ -1,7 +1,6 @@
 from datetime import date
 from dotenv import load_dotenv
-
-load_dotenv()
+import os
 from flask import Flask, abort, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
@@ -12,8 +11,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import relationship
 from flask_gravatar import Gravatar
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
-import os
 
+
+load_dotenv()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
